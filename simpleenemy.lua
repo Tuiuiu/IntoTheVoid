@@ -1,19 +1,21 @@
 -- Create table containing Simple Enemy functions and attributes
 local SE = {}
 
+-- Attributes of the enemy
 SE.x = nil
 SE.y = nil
 
+-- Local variables
 local horizontalXspeed = 100
 local speedChanger = 1
 
+-- Public functions that can be called by the requiring file
 function SE.create(x, y)
 	SE.x = x
 	SE.y = y
 end
 
 function SE.update(dt)
-
 	if horizontalXspeed >= 100 and speedChanger == 1 then
 		speedChanger = -1
 	elseif horizontalXspeed <= -100 and speedChanger == -1 then
@@ -23,9 +25,7 @@ function SE.update(dt)
 	horizontalXspeed = horizontalXspeed + speedChanger * dt * 50
 
 	SE.x = SE.x + horizontalXspeed * dt
-	print (horizontalXspeed .. " speedChanger eh " .. speedChanger)
 end 
-
 
 function SE.draw()
 	love.graphics.setColor(255, 140, 0)
