@@ -1,4 +1,5 @@
 player = {}
+SE = require "simpleenemy"
 
 function love.load()
 	love.window.setMode(1024, 768)
@@ -6,6 +7,8 @@ function love.load()
 
 	player.x = love.graphics.getWidth() / 2
 	player.y = love.graphics.getHeight() / 2
+
+	SE.create(600,300)
 end
 
 function love.update(dt)
@@ -24,9 +27,12 @@ function love.update(dt)
 	if love.keyboard.isDown("down") then 
 		player.y = player.y + 150 * dt
 	end
+
+	SE.update(dt)
 end
 
 function love.draw()
 	love.graphics.setColor(148, 0, 211)
 	love.graphics.rectangle("fill", player.x, player.y, 50, 50)
+	SE.draw()
 end
