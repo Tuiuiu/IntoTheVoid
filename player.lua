@@ -1,4 +1,5 @@
-Player = {}
+-- Create table containing Player functions and attributes
+local Player = {}
 
 Pistol = require "pistol"
 
